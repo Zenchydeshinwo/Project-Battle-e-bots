@@ -13,11 +13,12 @@ window.onload=function()
         {
 
             this.dirBot()
-            this.bot.moveBot(this.sign)
             this.canvas=document.getElementById("ring")
             this.ctx=this.canvas.getContext("2d")
 
             this.interval=setInterval(function(){
+
+                this.bot.moveBot(this.sign)
 
                 //console.log(this)
                 this.ctx.clearRect(0,0,1200,1000)
@@ -68,7 +69,7 @@ window.onload=function()
 
 
 
-Game.start();
 Game.startBot();
+Game.start();
 
 } 

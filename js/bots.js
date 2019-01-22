@@ -1,4 +1,5 @@
-function Bot(bot, botX, vx, vy){
+function Bot(bot, botX, vx, vy)
+    {
 
     this.game=bot,
     this.x=botX,
@@ -40,3 +41,4 @@ function Bot(bot, botX, vx, vy){
     
     }
     
+
