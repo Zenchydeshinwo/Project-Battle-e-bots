@@ -1,7 +1,7 @@
 //Cosntructor juego
 window.onload=function()
 {
-
+    
 
     var Game = 
     {
@@ -18,13 +18,12 @@ window.onload=function()
 
             this.interval=setInterval(function(){
 
-                this.bot.moveBot(this.sign)
-
+                
                 //console.log(this)
                 this.ctx.clearRect(0,0,1200,1000)
                 this.reDrawBot()
 
-            }.bind(this),500)
+            }.bind(this),1000/60)
 
 
 
@@ -47,11 +46,13 @@ window.onload=function()
                 
                 switch (e.keyCode) {
                     
-                  case 38: this.sign=2;  break;
-                  case 40: this.sign=4;  break;
-                  case 37: this.sign=1;  break;
-                  case 39: this.sign=3;  break;
+                  case 38: this.bot.moveBot(2); break;
+                  case 40: this.bot.moveBot(4); break;
+                  case 37: this.bot.moveBot(1); break;
+                  case 39: this.bot.moveBot(3); break;
                   console.log(">>>>>>>>>>>>>>>"+this.sign)
+                  
+
                 }
             }.bind(Game)
         },
@@ -67,9 +68,9 @@ window.onload=function()
 
     }
 
+    Game.startBot();
+    Game.start();
 
 
-Game.startBot();
-Game.start();
 
 } 

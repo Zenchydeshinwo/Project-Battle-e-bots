@@ -12,7 +12,7 @@ function Bot(bot, botX, vx, vy)
     Bot.prototype.drawBot=function()
     {
     
-    
+        
         this.game.ctx.fillStyle="red"
         this.game.ctx.fillRect(this.x+this.vx, 150+this.vy, 60, 90)
         console.log("Hi")
