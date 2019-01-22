@@ -1,15 +1,13 @@
-function Bot(game, botX, vx, vy)
+function Bot(game)
     {
-    console.log(game)
-    this.Game=game,
+    
+    this.game=game,
     this.contador=0,
     this.counter=0,
-    this.x=botX,
-    this.vx=vx,
-    this.vy=vy
+    this.vx=window.innerWidth*0.08,
+    this.vy=window.innerHeight*.8,
     this.img = new Image();
     this.img.src = './img/bot1.png';
-    
     }
     
     Bot.prototype.drawBot=function()
@@ -21,14 +19,10 @@ function Bot(game, botX, vx, vy)
             this.contador=this.contador+1
             this.counter=0
         }
-
         if (this.contador%3==0) {this.contador=0}
-    
+
+        this.game.ctx.drawImage(this.img, 75*this.contador, 0, 70, 70, this.vx, this.vy, window.innerWidth*0.05 ,window.innerHeight*0.1)
         
-        //this.Game.ctx.fillStyle="red"
-        this.Game.ctx.drawImage(this.img, 75*this.contador, 0, 70, 70, 400+this.vx, 150+this.vy, 80, 70)
-        
-        console.log("Hi")
     }
     
     Bot.prototype.moveBot=function(expression)
@@ -40,28 +34,6 @@ function Bot(game, botX, vx, vy)
         if(expression==40) this.vy+=8
 
 
-        // if (expression<3)
-        // {
-
-        //     if(expression==2)
-        //     {
-        //     this.vy-=5
-        //     }
-
-        //     else this.vx-=5
-
-        // }
-        // else if(expression==3)
-        // {
-        //     this.vx+=5
-        // }
-        //     else
-        //     {
-        //         this.vy+=5
-        //     }
-        
-     //console.log(">>>>>>>>>"+this.vx+">>>>>>>>>>>"+this.vy)
-    
     }
     
 
@@ -72,20 +44,3 @@ function Bot(game, botX, vx, vy)
 
 
 
-// switch(expression) 
-//         {
-//             case 1:
-//               this.vx-=5
-//               break;
-//             case 2:
-//               this.vy-=5
-//               break;
-//             case 3:
-//               this.vx+=5
-//               break;
-//             case 4:
-//               this.vy+=5
-//               break;
-//             default:
-    
-//         }
