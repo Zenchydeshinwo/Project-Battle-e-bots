@@ -28,25 +28,59 @@ function Bot(game, botX, vx, vy)
     
     Bot.prototype.moveBot=function(expression)
     { 
-        switch(expression) 
-        {
-            case 1:
-              this.vx-=5
-              break;
-            case 2:
-              this.vy-=5
-              break;
-            case 3:
-              this.vx+=5
-              break;
-            case 4:
-              this.vy+=5
-              break;
-            default:
-    
-        }
-     console.log(">>>>>>>>>"+this.vx+">>>>>>>>>>>"+this.vy)
+
+        if(expression==37) this.vx-=3
+        if(expression==38) this.vy-=3
+        if(expression==39) this.vx+=3
+        if(expression==40) this.vy+=3
+
+
+        // if (expression<3)
+        // {
+
+        //     if(expression==2)
+        //     {
+        //     this.vy-=5
+        //     }
+
+        //     else this.vx-=5
+
+        // }
+        // else if(expression==3)
+        // {
+        //     this.vx+=5
+        // }
+        //     else
+        //     {
+        //         this.vy+=5
+        //     }
+        
+     //console.log(">>>>>>>>>"+this.vx+">>>>>>>>>>>"+this.vy)
     
     }
     
 
+
+
+
+
+
+
+
+// switch(expression) 
+//         {
+//             case 1:
+//               this.vx-=5
+//               break;
+//             case 2:
+//               this.vy-=5
+//               break;
+//             case 3:
+//               this.vx+=5
+//               break;
+//             case 4:
+//               this.vy+=5
+//               break;
+//             default:
+    
+//         }

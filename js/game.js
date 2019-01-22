@@ -8,7 +8,7 @@ window.onload=function()
         
         canvas:undefined,
         ctx:undefined,
-        factorFrame:10,
+        factorFrame:60,
         start:function()
         {
             this.background()
@@ -21,7 +21,8 @@ window.onload=function()
 
             this.interval=setInterval(function(){
 
-                
+              //  this.dirBot()
+
                 // console.log(this)
                 //this.ctx.clearRect(0,0,1200,1000)
                 this.background.draw()
@@ -48,14 +49,20 @@ window.onload=function()
         {     
             document.onkeydown = function(e)
             {                
-                switch (e.keyCode)
-                 {
-                  case 38: this.bot.moveBot(2); break;
-                  case 40: this.bot.moveBot(4); break;
-                  case 37: this.bot.moveBot(1); break;
-                  case 39: this.bot.moveBot(3); break;                         
-                 }
-            }.bind(Game)
+                // switch (e.keyCode)
+                //  {
+                //   case 38: this.bot.moveBot(2); break;
+                //   case 40: this.bot.moveBot(4); break;
+                //   case 37: this.bot.moveBot(1); break;
+                //   case 39: this.bot.moveBot(3); break;                         
+                //  }
+                 this.bot.moveBot(e.keyCode)
+                // if(e.keyCode==38) this.bot.moveBot(2)
+                // if(e.keyCode==39) this.bot.moveBot(3)
+                // if(e.keyCode==40) this.bot.moveBot(4)
+
+
+            }.bind(this)
         },
 
         reDrawBot:function()
@@ -83,3 +90,4 @@ window.onload=function()
 
 
 } 
+
