@@ -28,7 +28,7 @@ window.onload=function()
                 this.background.draw()
                 this.reDrawBot()
 
-            }.bind(this),1000/this.factorFrame)
+            }.bind(this),100/this.factorFrame)
 
 
 

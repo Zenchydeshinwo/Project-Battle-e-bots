@@ -3,6 +3,7 @@ function Bot(game, botX, vx, vy)
     console.log(game)
     this.Game=game,
     this.contador=0,
+    this.counter=0,
     this.x=botX,
     this.vx=vx,
     this.vy=vy
@@ -13,9 +14,13 @@ function Bot(game, botX, vx, vy)
     
     Bot.prototype.drawBot=function()
     {
+        this.counter+=1
 
-        this.contador=this.contador+1
-
+        if(this.counter>25)
+        {
+            this.contador=this.contador+1
+            this.counter=0
+        }
 
         if (this.contador%3==0) {this.contador=0}
     
@@ -29,10 +34,10 @@ function Bot(game, botX, vx, vy)
     Bot.prototype.moveBot=function(expression)
     { 
 
-        if(expression==37) this.vx-=3
-        if(expression==38) this.vy-=3
-        if(expression==39) this.vx+=3
-        if(expression==40) this.vy+=3
+        if(expression==37) this.vx-=8
+        if(expression==38) this.vy-=8
+        if(expression==39) this.vx+=8
+        if(expression==40) this.vy+=8
 
 
         // if (expression<3)
