@@ -4,18 +4,18 @@ function Bot(game)
     this.game=game,
     this.contador=0,
     this.counter=0,
-    this.vx=window.innerWidth*0.08,
-    this.vy=window.innerHeight*.8,
+    this.vx=game.canvas.width*0.08,
+    this.vy=game.canvas.height*.8,
     this.img = new Image();
     this.img.src = './img/bot1.png';
-
+    
     }
     
     Bot.prototype.drawBot=function()
     {
-        
 
-        this.game.ctx.drawImage(this.img, 75*this.animeBot(), 0, 70, 70, this.vx, this.vy, window.innerWidth*0.05 ,window.innerHeight*0.1)
+        // debugger
+        this.game.ctx.drawImage(this.img, 75*this.animeBot(), 0, 70, 70, this.vx, this.vy, this.game.canvas.width*0.05 ,this.game.canvas.height*0.1)
         
     }
     
@@ -30,9 +30,9 @@ function Bot(game)
 
     }
 
-    Bot.prototype.animeBot=function(param)
+    Bot.prototype.animeBot=function()
     {
-        if (param%35==0){
+        if (this.game.counterFrame%35==0){
             this.counter++
         }
         if (this.counter==3) {this.counter=0}
