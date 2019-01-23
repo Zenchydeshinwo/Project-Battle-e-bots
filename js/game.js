@@ -6,8 +6,7 @@ window.onload=function()
         canvas:undefined,
         ctx:undefined,
         factorFrame:60,
-        fractionFrame:100,
-        // counterFrame:0,
+        counterFrame:0,
         start:function()
         {
             this.reset()
@@ -22,7 +21,7 @@ window.onload=function()
         startBot:function()
         {
             
-            this.bot=new Bot(window)
+            this.bot=new Bot(this)
 
         },
         dirBot:function()
@@ -35,10 +34,7 @@ window.onload=function()
                 
             }.bind(this)
         },
-        reDrawBot:function()
-        {   
-            this.bot.drawBot()
-        },
+        
 
         background:function()
         {
@@ -53,11 +49,11 @@ window.onload=function()
             this.interval=setInterval(function()
                 {
                 this.counterFrame++
-                if (this.fractionFrame==this.counterFrame){this.counterFrame=0}
                 this.background.draw()
-                this.reDrawBot()
-                
-                }.bind(this),this.fractionFrame/this.factorFrame)
+                this.bot.drawBot()
+                this.bot.animeBot(this.counterFrame)
+                if(this.counterFrame>500){this.counterFrame=0}
+                }.bind(this),100/this.factorFrame)
         },
         reset:function(){
             this.counterFrame=0
@@ -65,6 +61,5 @@ window.onload=function()
     }
     Game.startBot();
     Game.start();
-    console.log("========D"+this)
 } 
 
