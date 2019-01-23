@@ -7,10 +7,10 @@ window.onload=function()
         ctx:undefined,
         factorFrame:60,
         counterFrame:0,
-        start:function()
+        start:function(id)
         {
             this.reset()
-            this.canvas=document.getElementById("ring")
+            this.canvas=document.getElementById(id)
             this.ctx=this.canvas.getContext("2d")
             this.canvas.width=window.innerWidth
             this.canvas.height=window.innerHeight
@@ -18,18 +18,21 @@ window.onload=function()
             this.chrono()
             this.background()
             this.dirBot()
+            
+            
         },
         startBot:function()
         {
-            this.bot=new Bot(this)
+            this.bot=new Bot(this);
+           // this.bot2=new Bot(this);
 
         },
         dirBot:function()
         {     
             document.onkeydown = function(e)
             {                
-                
-                 this.bot.moveBot(e.keyCode)
+
+                 this.bot.displaceBot(e.keyCode)
                  if (e.keyCode==80){this.stop()}
                 
             }.bind(this)
@@ -52,14 +55,15 @@ window.onload=function()
                 this.background.draw()
                 this.bot.drawBot()
                 this.bot.animeBot()
+                this.bot.jump();
                 if(this.counterFrame>500){this.counterFrame=0}
-                }.bind(this),100/this.factorFrame)
+                }.bind(this),1000/this.factorFrame)
         },
         reset:function(){
             this.counterFrame=0
         }
     }
     // Game.startBot();
-    Game.start();
+    Game.start("ring");
 } 
 
