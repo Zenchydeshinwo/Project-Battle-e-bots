@@ -1,6 +1,6 @@
 function Bot(game,number_player) {
 
-  this.game = game;
+  this.game = game;debugger
   this.player=number_player
 
   this.contador = 0;
@@ -25,17 +25,28 @@ function Bot(game,number_player) {
 
   this.arrBullets=[];
 
+
+  if (number_player==1){
+
   this.img = new Image();
   this.img.src = "./img/bot1.png";
 
+}else{
+    this.img = new Image();
+    this.img.src = "./img/vigilant.png"
+
 }
 
-Bot.prototype.drawBot = function() {
+}
+
+Bot.prototype.drawBot = function() { 
+
+    
   this.game.ctx.drawImage(
     this.img,
     75 * this.animeBot(),
     0,
-    70,
+    70+10*((this.player-1)/this.player),
     70,
     this.x,
     this.y,
