@@ -1,6 +1,7 @@
-function Bot(game) {
+function Bot(game,number_player) {
 
   this.game = game;
+  this.player=number_player
 
   this.contador = 0;
   this.counter = 0;
@@ -14,7 +15,7 @@ function Bot(game) {
   this.y0 = game.canvas.height * 0.8;
 
 
-  this.x = game.canvas.width * 0.08;
+  this.x = game.canvas.width * 0.08*(Math.pow(number_player,3));
   this.y = game.canvas.height * 0.3;
   
   this.acel = 0.15;
@@ -81,11 +82,17 @@ Bot.prototype.jump = function() {
 
 Bot.prototype.shoot=function(){
 
-    var bullet=new Bullets(this.game, this.x, this.y, this.w, this.h, this.y0)
+    var bullet=new Bullets(this.game, this.x, this.y,this.w, this.y0)
     //console.log(bullet)
     this.arrBullets.push(bullet)
-    
-    
 
+}
 
+Bot.prototype.clearBullets=function(indice){
+    console.log(">>>>>>>>>>>>>>>>>>>>"+indice+"**********"+this.arrBullets[indice].xBul)
+
+    if (this.arrBullets[indice].xBul>1500){
+        console.log(">>>>>>>>>>>>>>>>>>>>",indice)
+        this.arrBullets.splice(indice,9) 
+    }   
 }

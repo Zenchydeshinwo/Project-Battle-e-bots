@@ -24,8 +24,8 @@ window.onload=function()
         },
         startBot:function()
         {
-            this.bot=new Bot(this);
-           // this.bot2=new Bot(this);
+            this.bot=new Bot(this,1);
+            this.bot2=new Bot(this,2);
 
         },
         dirBot:function()
@@ -55,14 +55,23 @@ window.onload=function()
             this.interval=setInterval(function(){
                 this.counterFrame++
                 this.background.draw()
+
                 this.bot.drawBot()
+                this.bot2.drawBot()
+
                 this.bot.animeBot()
+                this.bot2.animeBot()
+
+
                 this.bot.jump()
+                this.bot2.jump()
+
 
                 for (var k=0; k<this.bot.arrBullets.length;k++){
                     this.bot.arrBullets[k].drawBullets( )
                     console.log(this.bot.arrBullets[k], this.bot.arrBullets.length)
                     this.bot.arrBullets[k].moveBullets()
+                    this.bot.clearBullets(k)
 
                 }
                 if(this.counterFrame>500){this.counterFrame=0}
