@@ -70,11 +70,11 @@ window.onload=function()
                 for (var k=0; k<this.bot.arrBullets.length;k++){
                     this.bot.arrBullets[k].drawBullets( )
                     console.log(this.bot.arrBullets[k], this.bot.arrBullets.length)
-                    this.bot.arrBullets[k].moveBullets()
+                    this.bot.arrBullets[k].moveBullets(k)
                     this.bot.clearBullets(k)
 
                 }
-                if(this.counterFrame>500){this.counterFrame=0}
+                if(this.counterFrame>5000){this.counterFrame=0}
                 }.bind(this),1000/this.factorFrame)
         },
         reset:function(){

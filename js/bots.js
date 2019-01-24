@@ -6,6 +6,8 @@ function Bot(game,number_player) {
   this.contador = 0;
   this.counter = 0;
 
+  this.vida=100;
+
   this.vx = 0;
   this.vy = 0;
 
@@ -89,10 +91,9 @@ Bot.prototype.shoot=function(){
 }
 
 Bot.prototype.clearBullets=function(indice){
-    console.log(">>>>>>>>>>>>>>>>>>>>"+indice+"**********"+this.arrBullets[indice].xBul)
 
     if (this.arrBullets[indice].xBul>1500){
-        console.log(">>>>>>>>>>>>>>>>>>>>",indice)
-        this.arrBullets.splice(indice,9) 
+        this.arrBullets.splice(indice,1) 
     }   
 }
+
