@@ -33,9 +33,9 @@ window.onload=function()
             document.onkeydown = function(e)
             {                
 
-                 if (e.keyCode==32){debugger;this.bot.shoot()}
+                 if (e.keyCode==32){this.bot.shoot()}
 
-                 if (e.keyCode==81){debugger;this.bot2.shoot()}
+                 if (e.keyCode==81){this.bot2.shoot()}
 
 
                  if (e.keyCode==80){this.stop()}
@@ -90,14 +90,14 @@ window.onload=function()
                 for (var k=0; k<this.bot.arrBullets.length;k++){
                     this.bot.arrBullets[k].drawBullets()
                     console.log(this.bot.arrBullets[k], this.bot.arrBullets.length)
-                    this.bot.arrBullets[k].moveBullets(k)
+                    this.bot.arrBullets[k].moveBullets(this.bot.player)
                     this.bot.clearBullets(k)
                 }
                     //+++++++++++++
                 for (var kj=0; kj<this.bot2.arrBullets.length;kj++){
                     this.bot2.arrBullets[kj].drawBullets()
                     console.log(this.bot2.arrBullets[kj], this.bot2.arrBullets.length)
-                    this.bot2.arrBullets[kj].moveBullets(kj)
+                    this.bot2.arrBullets[kj].moveBullets(this.bot2.player);
                     this.bot2.clearBullets(kj)
                     //++++++++++
 

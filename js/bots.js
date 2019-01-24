@@ -77,7 +77,7 @@ Bot.prototype.jump = function() {
 };
 
 Bot.prototype.shoot=function(){
-debugger
+
     var bullet=new Bullets(this.game, this.x, this.y,this.w, this.y0,this.player)
     this.arrBullets.push(bullet)
 

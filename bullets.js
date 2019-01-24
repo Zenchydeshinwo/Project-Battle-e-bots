@@ -26,7 +26,7 @@ Bullets.prototype.drawBullets=function(){
         0,0,
         310,
         294,
-        this.xBul,
+        this.xBul-50*((this.player-1)/this.player),
         this.yBul,
         this.wBul,
         this.hBul
@@ -36,9 +36,10 @@ Bullets.prototype.drawBullets=function(){
 
 }
 
-Bullets.prototype.moveBullets=function(){
-    console.log (this.player)
-    this.xBul+=10*(-1)^(1+this.player)
+Bullets.prototype.moveBullets=function(bot){
+    console.log (bot)
+    
+    this.xBul+=10*(-1)^(1+bot)+150
     this.collision()
 
 }
@@ -46,8 +47,8 @@ Bullets.prototype.moveBullets=function(){
 Bullets.prototype.collision=function(k){
     
 
-    if (this.xBul+this.wBul>=this.game.bot2.x && this.xBul<=this.game.bot2.x+this.game.bot2.w 
-        && this.yBul+this.hBul>=this.game.bot2.y && this.yBul<=this.game.bot2.y+this.game.bot2.h ){
+    if (this.xBul+this.wBul>this.game.bot2.x && this.xBul<this.game.bot2.x+this.game.bot2.w 
+        && this.yBul+this.hBul>this.game.bot2.y && this.yBul<this.game.bot2.y+this.game.bot2.h ){
         
         this.game.bot2.vida-=10
         this.xBul=2000
