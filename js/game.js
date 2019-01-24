@@ -96,8 +96,9 @@ window.onload=function()
                     //+++++++++++++
                 for (var kj=0; kj<this.bot2.arrBullets.length;kj++){
                     this.bot2.arrBullets[kj].drawBullets()
-                    console.log(this.bot2.arrBullets[kj], this.bot2.arrBullets.length)
                     this.bot2.arrBullets[kj].moveBullets(this.bot2.player);
+                    console.log(this.bot2.arrBullets[kj], this.bot2.arrBullets.length)
+
                     this.bot2.clearBullets(kj)
                     //++++++++++
 

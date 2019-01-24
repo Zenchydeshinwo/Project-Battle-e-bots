@@ -26,7 +26,7 @@ Bullets.prototype.drawBullets=function(){
         0,0,
         310,
         294,
-        this.xBul-50*((this.player-1)/this.player),
+        this.xBul-250*((this.player-1)/this.player),
         this.yBul,
         this.wBul,
         this.hBul
@@ -39,7 +39,9 @@ Bullets.prototype.drawBullets=function(){
 Bullets.prototype.moveBullets=function(bot){
     console.log (bot)
     
-    this.xBul+=10*(-1)^(1+bot)+150
+    this.xBul+=10*(Math.pow(-1,(1+bot)))
+    debugger
+    console.log(this.xBul,">>>>>><",Math.pow(-1,(1+bot)))
     this.collision()
 
 }
@@ -52,7 +54,7 @@ Bullets.prototype.collision=function(k){
         
         this.game.bot2.vida-=10
         this.xBul=2000
-        if (this.game.bot2.vida<=0) this.game.bot2.deathVictory()
+        if (this.game.bot2.vida<=0||this.game.bot.vida<=0) this.game.bot2.deathVictory()
 
 
         console.log("Me comes los cojones ++++",this.game.bot2.vida)

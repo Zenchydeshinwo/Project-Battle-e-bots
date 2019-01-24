@@ -85,7 +85,7 @@ Bot.prototype.shoot=function(){
 
 Bot.prototype.clearBullets=function(indice){
 
-    if (this.arrBullets[indice].xBul>1500){
+    if (this.arrBullets[indice].xBul>1500||this.arrBullets[indice].xBul<-100){
         this.arrBullets.splice(indice,1) 
     }   
 }
