@@ -1,6 +1,6 @@
 function Bot(game,number_player) {
 
-  this.game = game;debugger
+  this.game = game;
   this.player=number_player
 
   this.contador = 0;
@@ -65,16 +65,6 @@ Bot.prototype.animeBot = function() {
   return this.counter;
 };
 
-// Bot.prototype.displaceBot = function(expression) {
-//   if (expression == 37) this.x -= 10;
-//   if (expression == 39) this.x += 10;
-//   if (expression == 40) this.y += 10;
-//   if (expression == 38) 
-//   {
-//     this.y -= 5;
-//     this.vy = -7;
-//   }
-//   };
 
 Bot.prototype.jump = function() {
   if (this.y >= this.y0) {
@@ -87,9 +77,8 @@ Bot.prototype.jump = function() {
 };
 
 Bot.prototype.shoot=function(){
-
-    var bullet=new Bullets(this.game, this.x, this.y,this.w, this.y0)
-    //console.log(bullet)
+debugger
+    var bullet=new Bullets(this.game, this.x, this.y,this.w, this.y0,this.player)
     this.arrBullets.push(bullet)
 
 }

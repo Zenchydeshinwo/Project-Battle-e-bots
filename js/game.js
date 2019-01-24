@@ -33,19 +33,14 @@ window.onload=function()
             document.onkeydown = function(e)
             {                
 
-                //  this.displaceBot(e.keyCode)
-                 if (e.keyCode==32){this.bot.shoot()}
+                 if (e.keyCode==32){debugger;this.bot.shoot()}
 
                  if (e.keyCode==81){debugger;this.bot2.shoot()}
 
 
                  if (e.keyCode==80){this.stop()}
                 
-        //     }.bind(this)
-        // },
-        //++++++++++++++++++
-        // displaceBot : function(expression) {
-
+       
             //BOT UNO
             if (e.keyCode == 37) this.bot.x -= 10;
             if (e.keyCode == 39) this.bot.x += 10;
@@ -67,7 +62,6 @@ window.onload=function()
         }.bind(this)
         },
         
-//++++++++++++++
         background:function()
         {
             this.background= new Background(this)
@@ -94,10 +88,18 @@ window.onload=function()
 
 
                 for (var k=0; k<this.bot.arrBullets.length;k++){
-                    this.bot.arrBullets[k].drawBullets( )
+                    this.bot.arrBullets[k].drawBullets()
                     console.log(this.bot.arrBullets[k], this.bot.arrBullets.length)
                     this.bot.arrBullets[k].moveBullets(k)
                     this.bot.clearBullets(k)
+                }
+                    //+++++++++++++
+                for (var kj=0; kj<this.bot2.arrBullets.length;kj++){
+                    this.bot2.arrBullets[kj].drawBullets()
+                    console.log(this.bot2.arrBullets[kj], this.bot2.arrBullets.length)
+                    this.bot2.arrBullets[kj].moveBullets(kj)
+                    this.bot2.clearBullets(kj)
+                    //++++++++++
 
                 }
                 if(this.counterFrame>5000){this.counterFrame=0}

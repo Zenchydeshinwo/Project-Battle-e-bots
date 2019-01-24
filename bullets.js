@@ -1,9 +1,9 @@
-function Bullets(game,x,y,w,y0) {
+function Bullets(game,x,y,w,y0,player) {
     this.game = game;
     this.countBullets = 0;
     
     this.acel = 0.15;
-
+    this.player=player;
 
     this.xBul = x+w;
     this.yBul = y;
@@ -37,8 +37,8 @@ Bullets.prototype.drawBullets=function(){
 }
 
 Bullets.prototype.moveBullets=function(){
-
-    this.xBul+=10
+    console.log (this.player)
+    this.xBul+=10*(-1)^(1+this.player)
     this.collision()
 
 }
