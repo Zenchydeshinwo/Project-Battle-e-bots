@@ -1,15 +1,30 @@
 function Bot(game) {
+
   this.game = game;
+
   this.contador = 0;
   this.counter = 0;
+
   this.vx = 0;
   this.vy = 0;
-  this.acel = 0.15;
+
+  this.w=this.game.canvas.width * 0.05;
+  this.h=this.game.canvas.height * 0.1;
+
+  this.y0 = game.canvas.height * 0.8;
+
+
   this.x = game.canvas.width * 0.08;
   this.y = game.canvas.height * 0.3;
-  this.y0 = game.canvas.height * 0.8;
+  
+  this.acel = 0.15;
+
+
+  this.arrBullets=[];
+
   this.img = new Image();
   this.img.src = "./img/bot1.png";
+
 }
 
 Bot.prototype.drawBot = function() {
@@ -21,8 +36,8 @@ Bot.prototype.drawBot = function() {
     70,
     this.x,
     this.y,
-    this.game.canvas.width * 0.05,
-    this.game.canvas.height * 0.1
+    this.w,
+    this.h
   );
 };
 
@@ -47,10 +62,12 @@ Bot.prototype.displaceBot = function(expression) {
   if (expression == 37) this.x -= 10;
   if (expression == 39) this.x += 10;
   if (expression == 40) this.y += 10;
-  if (expression == 38) {
+  if (expression == 38) 
+  {
     this.y -= 5;
     this.vy = -7;
   }
+  
 };
 Bot.prototype.jump = function() {
   if (this.y >= this.y0) {
@@ -61,3 +78,14 @@ Bot.prototype.jump = function() {
     this.y += this.vy;
   }
 };
+
+Bot.prototype.shoot=function(){
+
+    var bullet=new Bullets(this.game, this.x, this.y, this.w, this.h, this.y0)
+    //console.log(bullet)
+    this.arrBullets.push(bullet)
+    
+    
+
+
+}

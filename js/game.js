@@ -7,6 +7,7 @@ window.onload=function()
         ctx:undefined,
         factorFrame:60,
         counterFrame:0,
+
         start:function(id)
         {
             this.reset()
@@ -33,6 +34,8 @@ window.onload=function()
             {                
 
                  this.bot.displaceBot(e.keyCode)
+                 if (e.keyCode==32){this.bot.shoot()}
+
                  if (e.keyCode==80){this.stop()}
                 
             }.bind(this)
@@ -49,13 +52,18 @@ window.onload=function()
 
         chrono:function()
         {
-            this.interval=setInterval(function()
-                {
+            this.interval=setInterval(function(){
                 this.counterFrame++
                 this.background.draw()
                 this.bot.drawBot()
                 this.bot.animeBot()
-                this.bot.jump();
+                this.bot.jump()
+
+                for (var k=0; k<this.bot.arrBullets.length;k++){
+                    this.bot.arrBullets[k].drawBullets( )
+                    console.log(this.bot.arrBullets[k], this.bot.arrBullets.length)
+
+                }
                 if(this.counterFrame>500){this.counterFrame=0}
                 }.bind(this),1000/this.factorFrame)
         },
@@ -63,7 +71,6 @@ window.onload=function()
             this.counterFrame=0
         }
     }
-    // Game.startBot();
     Game.start("ring");
 } 
 
