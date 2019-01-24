@@ -45,24 +45,18 @@ Bullets.prototype.moveBullets=function(){
 
 Bullets.prototype.collision=function(k){
     
-   // console.log(">>>>>>>>",this.xBul,"+",this.wBul,"+++++++++++",this.game.bot2.x)
 
     if (this.xBul+this.wBul>=this.game.bot2.x && this.xBul<=this.game.bot2.x+this.game.bot2.w 
         && this.yBul+this.hBul>=this.game.bot2.y && this.yBul<=this.game.bot2.y+this.game.bot2.h ){
         
-        // this.y+this.wBul<=this.game.bot2.y){
         this.game.bot2.vida-=10
         this.xBul=2000
+        if (this.game.bot2.vida<=0) this.game.bot2.deathVictory()
+
 
         console.log("Me comes los cojones ++++",this.game.bot2.vida)
     }
 
-// if (this.xBul+this.wBul>=this.game.bot2.x && 
-//     this.xBul<=this.game.bot2+this.game.bot2.w && 
-//     this.yBul+this.hBul>=this.game.bot2.y && 
-//     this.y<=this.game.bot2.y+this.game.bot2.h )
-
-   // console.log("*******",this.game.bot2.vida,"**********")
 
     
 

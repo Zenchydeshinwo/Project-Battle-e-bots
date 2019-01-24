@@ -33,15 +33,41 @@ window.onload=function()
             document.onkeydown = function(e)
             {                
 
-                 this.bot.displaceBot(e.keyCode)
+                //  this.displaceBot(e.keyCode)
                  if (e.keyCode==32){this.bot.shoot()}
+
+                 if (e.keyCode==81){debugger;this.bot2.shoot()}
+
 
                  if (e.keyCode==80){this.stop()}
                 
-            }.bind(this)
+        //     }.bind(this)
+        // },
+        //++++++++++++++++++
+        // displaceBot : function(expression) {
+
+            //BOT UNO
+            if (e.keyCode == 37) this.bot.x -= 10;
+            if (e.keyCode == 39) this.bot.x += 10;
+            if (e.keyCode == 40) this.bot.y += 10;
+            if (e.keyCode == 38) 
+            {
+              this.bot.y -= 5;
+              this.bot.vy = -7;
+            }
+            //BOT DOS
+            if (e.keyCode == 86) this.bot2.x -= 10;
+            if (e.keyCode == 77) this.bot2.x += 10;
+            if (e.keyCode == 66||e.keyCode == 78) this.bot2.y += 10;
+            if (e.keyCode == 72) 
+            {
+              this.bot2.y -= 5;
+              this.bot2.vy = -7;
+            }
+        }.bind(this)
         },
         
-
+//++++++++++++++
         background:function()
         {
             this.background= new Background(this)

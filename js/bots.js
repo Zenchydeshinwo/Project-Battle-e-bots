@@ -54,24 +54,17 @@ Bot.prototype.animeBot = function() {
   return this.counter;
 };
 
-Bot.prototype.jumpBot = function(param) {
-  if (param == 1) {
-    this.vy += 10;
-    return (this.y -= this.vy);
-  } else return (this.vy = 1);
-};
+// Bot.prototype.displaceBot = function(expression) {
+//   if (expression == 37) this.x -= 10;
+//   if (expression == 39) this.x += 10;
+//   if (expression == 40) this.y += 10;
+//   if (expression == 38) 
+//   {
+//     this.y -= 5;
+//     this.vy = -7;
+//   }
+//   };
 
-Bot.prototype.displaceBot = function(expression) {
-  if (expression == 37) this.x -= 10;
-  if (expression == 39) this.x += 10;
-  if (expression == 40) this.y += 10;
-  if (expression == 38) 
-  {
-    this.y -= 5;
-    this.vy = -7;
-  }
-  
-};
 Bot.prototype.jump = function() {
   if (this.y >= this.y0) {
     this.y = this.y0;
@@ -95,5 +88,12 @@ Bot.prototype.clearBullets=function(indice){
     if (this.arrBullets[indice].xBul>1500){
         this.arrBullets.splice(indice,1) 
     }   
+}
+
+Bot.prototype.deathVictory=function(indice){
+
+    console.log("YOU'RE DEATH SECOND PLAYER!!!!!!!")
+    clearInterval(this.game.interval)
+    
 }
 
