@@ -48,10 +48,11 @@ Bullets.prototype.collision=function(k){
    // console.log(">>>>>>>>",this.xBul,"+",this.wBul,"+++++++++++",this.game.bot2.x)
 
     if (this.xBul+this.wBul>=this.game.bot2.x && this.xBul<=this.game.bot2.x+this.game.bot2.w 
-        && this.yBul+this.hBul>=this.game.bot2.y){
+        && this.yBul+this.hBul>=this.game.bot2.y && this.yBul<=this.game.bot2.y+this.game.bot2.h ){
         
         // this.y+this.wBul<=this.game.bot2.y){
         this.game.bot2.vida-=10
+        this.xBul=2000
 
         console.log("Me comes los cojones ++++",this.game.bot2.vida)
     }
