@@ -95,9 +95,10 @@ Bot.prototype.clearBullets=function(indice){
 
 Bot.prototype.deathVictory=function(indice){
 
-    console.log(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`)
-    this.game.ctx.font = "50px Georgia"
-    this.game.ctx.fillText(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`, this.game.canvas.width/2-350, this.game.canvas.height/2)
+    console.log(`YOU'RE DEAD PLAYER ${indice}!!!!!!!`)
+    this.game.ctx.font = "50px DS-Digital"
+    this.game.ctx.fillStyle="red"
+    this.game.ctx.fillText(`YOU'RE DEAD PLAYER ${indice}!!!!!!!`, this.game.canvas.width/2-350, this.game.canvas.height/2)
     //alert(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`)
     clearInterval(this.game.interval)
     
