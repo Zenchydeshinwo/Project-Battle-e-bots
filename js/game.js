@@ -19,6 +19,7 @@ window.onload=function()
             this.chrono()
             this.background()
             this.dirBot()
+            this.shootBot()
             
             
         },
@@ -28,19 +29,24 @@ window.onload=function()
             this.bot2=new Bot(this,2);
 
         },
+        shootBot:function()
+        {
+            document.onkeyup=function(e)
+            {
+            if (e.keyCode==32){this.bot.shoot()}
+
+            if (e.keyCode==81){this.bot2.shoot()}
+            }.bind(this)
+        },
+
+
         dirBot:function()
         {     
+        
             document.onkeydown = function(e)
             {                
-
-                 if (e.keyCode==32){this.bot.shoot()}
-
-                 if (e.keyCode==81){this.bot2.shoot()}
-
-
-                 if (e.keyCode==80){this.stop()}
-                
-       
+            
+             if (e.keyCode==80){this.stop()}
             //BOT UNO
             if (e.keyCode == 37) this.bot.x -= 10;
             if (e.keyCode == 39) this.bot.x += 10;
