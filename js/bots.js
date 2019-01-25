@@ -67,6 +67,9 @@ Bot.prototype.animeBot = function() {
 
 
 Bot.prototype.jump = function() {
+
+    //if (this.y < this.game.canvas.height*0.2)
+
   if (this.y >= this.y0) {
     this.y = this.y0;
     this.vy = 0;
@@ -93,7 +96,8 @@ Bot.prototype.clearBullets=function(indice){
 Bot.prototype.deathVictory=function(indice){
 
     console.log(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`)
-    this.game.ctx.fillText(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`, 500, 400)
+    this.game.ctx.font = "50px Georgia"
+    this.game.ctx.fillText(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`, this.game.canvas.width/2-350, this.game.canvas.height/2)
     //alert(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`)
     clearInterval(this.game.interval)
     
