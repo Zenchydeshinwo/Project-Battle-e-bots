@@ -68,7 +68,7 @@ Bot.prototype.animeBot = function() {
 
 Bot.prototype.jump = function() {
 
-    //if (this.y < this.game.canvas.height*0.2)
+    if (this.y < this.game.canvas.height*0.2) {this.y=this.game.canvas.height*0.2}
 
   if (this.y >= this.y0) {
     this.y = this.y0;
