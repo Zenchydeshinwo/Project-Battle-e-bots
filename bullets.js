@@ -13,8 +13,17 @@ function Bullets(game,x,y,w,y0,player) {
     this.wBul=50;
     this.hBul=50;
     
+    if (player==1){
+
     this.img = new Image();
     this.img.src = "./img/BALA.png";
+
+    } else
+    {
+        this.img = new Image();
+    this.img.src = "./img/atom.png";
+
+    }
 
 }
 

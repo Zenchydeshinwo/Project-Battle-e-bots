@@ -93,8 +93,8 @@ Bot.prototype.clearBullets=function(indice){
 Bot.prototype.deathVictory=function(indice){
 
     console.log(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`)
-   // this.ctx.fillText(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`, 500, 400)
-    alert(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`)
+    this.game.ctx.fillText(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`, 500, 400)
+    //alert(`YOU'RE DEATH PLAYER ${indice}!!!!!!!`)
     clearInterval(this.game.interval)
     
 }
