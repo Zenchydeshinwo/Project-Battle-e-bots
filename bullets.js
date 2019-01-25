@@ -5,7 +5,8 @@ function Bullets(game,x,y,w,y0,player) {
     this.acel = 0.15;
     this.player=player;
 
-    this.xBul = x+w;
+    this.xBul = x+w-(2.5*w)*(player-1);
+
     this.yBul = y;
     this.y0 = y0;
 
@@ -26,7 +27,7 @@ Bullets.prototype.drawBullets=function(){
         0,0,
         310,
         294,
-        this.xBul-250*((this.player-1)/this.player),
+        this.xBul,//-250*((this.player-1)/this.player),
         this.yBul,
         this.wBul,
         this.hBul
@@ -38,9 +39,11 @@ Bullets.prototype.drawBullets=function(){
 
 Bullets.prototype.moveBullets=function(bot){
     console.log (bot)
-    
-    this.xBul+=10*(Math.pow(-1,(1+bot)))
-    debugger
+    //this.xBul-=10
+    this.xBul=this.xBul+10*(Math.pow(-1,(1+bot)))
+   // debugger
+   // this.xBul=this.xBul+10*(Math.pow(-1,(1+bot)))
+  //  debugger
     console.log(this.xBul,">>>>>><",Math.pow(-1,(1+bot)))
     this.collision()
 
