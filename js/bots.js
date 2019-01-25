@@ -17,7 +17,7 @@ function Bot(game,number_player) {
   this.y0 = game.canvas.height * 0.8;
 
 
-  this.x = game.canvas.width * 0.08*(Math.pow(number_player,3));
+  this.x = game.canvas.width * 0.08*(Math.pow(number_player,3.4));
   this.y = (game.canvas.height * 0.3);
   
   this.acel = 0.15;
