@@ -5,7 +5,7 @@ function Bullets(game,x,y,w,y0,player) {
     this.acel = 0.15;
     this.player=player;
 
-    this.xBul = x+w-(2.5*w)*(player-1);
+    this.xBul = x+w+2-(2.1*w)*(player-1);
 
     this.yBul = y;
     this.y0 = y0;
@@ -49,19 +49,32 @@ Bullets.prototype.moveBullets=function(bot){
 
 }
 
-Bullets.prototype.collision=function(k){
+Bullets.prototype.collision=function(k)
+{
     
 
     if (this.xBul+this.wBul>this.game.bot2.x && this.xBul<this.game.bot2.x+this.game.bot2.w 
-        && this.yBul+this.hBul>this.game.bot2.y && this.yBul<this.game.bot2.y+this.game.bot2.h ){
+        && this.yBul+this.hBul>this.game.bot2.y && this.yBul<this.game.bot2.y+this.game.bot2.h )
+        {
         
         this.game.bot2.vida-=10
         this.xBul=2000
-        if (this.game.bot2.vida<=0||this.game.bot.vida<=0) this.game.bot2.deathVictory()
+        if (this.game.bot2.vida<=0||this.game.bot.vida<=0) this.game.bot2.deathVictory(this.game.bot2.player)
 
 
         console.log("Me comes los cojones ++++",this.game.bot2.vida)
-    }
+        }
+        else if(this.xBul<this.game.bot.x+this.game.bot.w && this.xBul+this.wBul>this.game.bot.x &&
+            this.yBul+this.hBul>this.game.bot.y && this.game.bot.y+this.game.bot.h>this.yBul)
+        {
+            
+                
+              this.game.bot.vida-=10
+              this.xBul=2000
+         if (this.game.bot2.vida<=0||this.game.bot.vida<=0) this.game.bot.deathVictory(this.game.bot.player)
+         //console.log("Me comes los cojones ++++",this.game.bot.vida)
+
+        }
 
 
     
